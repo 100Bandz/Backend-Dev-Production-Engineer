@@ -20,6 +20,8 @@ namespace InventoryTracker.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Test = "Test 123";
+            ViewBag.Description = "This is a desc of the viewbag meow ";
             return View();
         }
 

@@ -1,4 +1,5 @@
 ﻿using InventoryTracker.Models;
+using InventoryTracker.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,9 @@ namespace InventoryTracker.Controllers
 
         public IActionResult ProcessAdd(ProductModel productModel)
         {
-            if (productModel.Name == "Nico" && productModel.Quantity == 25)
+            SecurityService securityService = new SecurityService();
+
+            if (securityService.IsValidProduct(productModel))
             {
                 return View("AddSuccess", productModel);
             }

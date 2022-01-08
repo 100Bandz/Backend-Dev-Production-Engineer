@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,10 +9,27 @@ namespace InventoryTracker.Models
 {
     public class ProductModel
     {
-        public string Name { get; set; }
+
+        [DisplayName("Product Id")]
         public int Id { get; set; }
+
+        [Required]
+        [StringLength(40, MinimumLength =3)]
+        [DisplayName("Product Name")]
+        public string Name { get; set; }
+
+        [DisplayName("Quantity")]
         public int Quantity { get; set; }
-        public int Price { get; set; }
+
+        [DataType(DataType.Currency)]
+        [DisplayName("Price")]
+        public decimal Price { get; set; }
+
+        [DataType(DataType.Text)]
+        public string Description { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayName("Date of Entry")]
         public DateTime Date { get; set; }
 
 

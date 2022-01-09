@@ -25,7 +25,6 @@ namespace InventoryTracker.Models
         [DisplayName("Price")]
         public decimal Price { get; set; }
 
-        [DataType(DataType.Text)]
         public string Description { get; set; }
 
         [DataType(DataType.DateTime)]

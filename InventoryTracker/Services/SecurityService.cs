@@ -20,19 +20,29 @@ namespace InventoryTracker.Services
             //bool isNullOrEmpty = productDAO.SearchProducts(product.Name)?.Any() != true;
             //return isNullOrEmpty;
 
-            if (productDAO.SearchProducts(product.Name)?.Any() != true)
+            //if (productDAO.SearchProducts(product.Name)?.Any() != true)
+            //{
+            //    return true;
+            //}
+
+            //foreach (ProductModel item in productDAO.SearchProducts(product.Name)) // Loop through List with foreach
+            //{
+            //    if (item.Name == product.Name)
+            //    {
+            //        return false;
+            //    }
+            //}
+            //return true;
+
+            if (productDAO.SearchName(product.Name))
             {
                 return true;
             }
-
-            foreach (ProductModel item in productDAO.SearchProducts(product.Name)) // Loop through List with foreach
+            else
             {
-                if (item.Name == product.Name)
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
+
 
         }
     }

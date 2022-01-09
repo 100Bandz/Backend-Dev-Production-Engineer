@@ -165,6 +165,37 @@ namespace InventoryTracker.Services
             return foundProducts;
         }
 
+        public bool SearchName(string searchName)
+        {
+            ProductModel sameNameProduct = new ProductModel();
+
+            string SQLQuery = "SELECT * FROM dbo.Product WHERE Name LIKE @Name";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(SQLQuery, connection);
+                command.Parameters.AddWithValue("@Name", searchName);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        return false;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            return true;
+        }
+
         public int Update(ProductModel product)
         {
             int newIdNumber = -1;

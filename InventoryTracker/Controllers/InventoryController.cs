@@ -39,17 +39,24 @@ namespace InventoryTracker.Controllers
 
         }
 
-        public IActionResult SearchAR(string searchTerm)    
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult ProcessSearch(string searchTerm)    
         {
             ProductsDAO products = new ProductsDAO();
             List<ProductModel> productList = products.SearchProducts(searchTerm);
 
-            return View("Index", productList);
-        }
-
-        public IActionResult Search()
-        {
-            return View();
+            if (productList.Count == 0)
+            {
+                return View("SearchFailure");
+            }
+            else
+            {
+                return View("Index", productList);
+            }
         }
 
         public IActionResult ShowDetails(int id)

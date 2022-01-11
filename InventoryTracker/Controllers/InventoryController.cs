@@ -3,7 +3,9 @@ using InventoryTracker.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryTracker.Controllers
@@ -15,6 +17,20 @@ namespace InventoryTracker.Controllers
             ProductsDAO products = new ProductsDAO();
 
             return View(products.GetAllProducts());
+        }
+
+        public IActionResult ExportToCSV()
+        {
+            ProductsDAO products = new ProductsDAO();
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("Id,Name,Quantity,Price,Description,Date");
+            foreach (ProductModel product in products.GetAllProducts())
+            {
+                stringBuilder.AppendLine($"{product.Id},{product.Name},{product.Quantity},{product.Price},{product.Description},{product.Date}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(stringBuilder.ToString()), "text/csv","products.csv");
         }
 
         public IActionResult Add()

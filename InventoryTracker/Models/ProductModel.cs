@@ -10,7 +10,7 @@ namespace InventoryTracker.Models
     public class ProductModel
     {
 
-        [DisplayName("Product Id")]
+        [DisplayName("Id Number")] 
         public int Id { get; set; }
 
         [Required]

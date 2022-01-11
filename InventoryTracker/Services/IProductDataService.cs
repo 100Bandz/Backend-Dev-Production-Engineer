@@ -10,6 +10,7 @@ namespace InventoryTracker.Services
     {
         List<ProductModel> GetAllProducts();
         List<ProductModel> SearchProducts(string searchTerm);
+        bool SearchName(string searchName);
         ProductModel GetProductById(int id);
         int Add(ProductModel product);
         int Delete(ProductModel product);

@@ -20,24 +20,32 @@ namespace InventoryTracker.Services
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                SqlCommand command = new SqlCommand(SQLQuery, connection);
-                command.Parameters.AddWithValue("@Id", product.Id);
-                command.Parameters.AddWithValue("@Name", product.Name);
-                command.Parameters.AddWithValue("@Quantity", product.Quantity);
-                command.Parameters.AddWithValue("@Price", product.Price);
-                command.Parameters.AddWithValue("@Description", product.Description);
-                command.Parameters.AddWithValue("@Date", product.Date);
-
                 try
                 {
-                    connection.Open();
-                    newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+                    SqlCommand command = new SqlCommand(SQLQuery, connection);
+                    command.Parameters.AddWithValue("@Id", product.Id);
+                    command.Parameters.AddWithValue("@Name", product.Name);
+                    command.Parameters.AddWithValue("@Quantity", product.Quantity);
+                    command.Parameters.AddWithValue("@Price", product.Price);
+                    command.Parameters.AddWithValue("@Description", product.Description);
+                    command.Parameters.AddWithValue("@Date", product.Date);
 
+                    try
+                    {
+                        connection.Open();
+                        newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine(ex.Message);
                 }
+
             }
 
             return newIdNumber;
@@ -60,7 +68,8 @@ namespace InventoryTracker.Services
 
                     while (reader.Read())
                     {
-                        foundProducts.Add(new ProductModel { Id = (int)reader[0], Name = (string)reader[1], Quantity = (int)reader[2], Price = (decimal)reader[3], Description = (string)reader[4], Date = (DateTime)reader[5] });
+                        foundProducts.Add(new ProductModel { Id = (int)reader[0], Name = (string)reader[1], Quantity = (int)reader[2], 
+                                            Price = (decimal)reader[3], Description = (string)reader[4], Date = (DateTime)reader[5] });
                     }
 
                 }
@@ -165,7 +174,7 @@ namespace InventoryTracker.Services
             return foundProducts;
         }
 
-        public bool SearchName(string searchName)
+        public bool SearchName(string searchName)   //Dont need anymore
         {
             ProductModel sameNameProduct = new ProductModel();
 
@@ -202,6 +211,7 @@ namespace InventoryTracker.Services
 
             string SQLQuery = "UPDATE dbo.Product SET Name = @Name, Quantity = @Quantity, Price = @Price, Description = @Description, Date = @Date WHERE Id = @Id";
 
+
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand command = new SqlCommand(SQLQuery, connection);
@@ -211,6 +221,7 @@ namespace InventoryTracker.Services
                 command.Parameters.AddWithValue("@Price", product.Price);
                 command.Parameters.AddWithValue("@Description", product.Description);
                 command.Parameters.AddWithValue("@Date", product.Date);
+
 
                 try
                 {

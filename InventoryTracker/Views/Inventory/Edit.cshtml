@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <form asp-action="ProcessEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div hidden class="form-group">
                 <label asp-for="Id" class="control-label"></label>  @*/You need to keep all of the properties here since it 
                                                                         then gets sent to "ProcessEdit", otherwise it wont update b/c
                                                                         it won't have the Id*@

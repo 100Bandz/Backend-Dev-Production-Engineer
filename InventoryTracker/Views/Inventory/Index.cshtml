@@ -9,9 +9,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Id)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -34,9 +34,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Id)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -53,10 +53,6 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @*<a href="/Inventory/ShowDetails/@item.Id" class="btn-primary">Show Details</a>
-                        <a href="/Inventory/Edit/@item.Id" class="btn-primary">Edit</a>
-                        <a href="/Inventory/Delete/@item.Id" class="btn-primary">Delete</a>*@
-
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "ShowDetails", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })

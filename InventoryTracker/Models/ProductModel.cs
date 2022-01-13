@@ -9,8 +9,6 @@ namespace InventoryTracker.Models
 {
     public class ProductModel
     {
-
-        [DisplayName("Id Number")] 
         public int Id { get; set; }
 
         [Required]

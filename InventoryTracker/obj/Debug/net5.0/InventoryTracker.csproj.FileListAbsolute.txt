@@ -24,7 +24,6 @@ D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\InventoryTracker.TagHelpers.output.cache
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\InventoryTracker.RazorCoreGenerate.cache
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -127,3 +126,5 @@ D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\Search.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\Edit.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\Details.cshtml.g.cs
+D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\SearchFailure.cshtml.g.cs
+D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\DetailsFailure.cshtml.g.cs

@@ -75,11 +75,25 @@ namespace InventoryTracker.Controllers
             }
         }
 
-        public IActionResult ShowDetails(int id)
+        //public IActionResult ShowDetails(ProductModel foundProduct)
+        //{
+        //    //ProductsDAO products = new ProductsDAO();
+        //    //ProductModel foundProduct = products.GetProductById(id);
+        //    return View("Details", foundProduct);
+        //}
+
+        public IActionResult ProcessDetails(int id)
         {
             ProductsDAO products = new ProductsDAO();
             ProductModel foundProduct = products.GetProductById(id);
-            return View("Details",foundProduct);
+            if (foundProduct == null)
+            {
+                return View("DetailsFailure");
+            }
+            else
+            {
+                return View("Details", foundProduct);
+            }
         }
 
         public IActionResult Edit(int id)

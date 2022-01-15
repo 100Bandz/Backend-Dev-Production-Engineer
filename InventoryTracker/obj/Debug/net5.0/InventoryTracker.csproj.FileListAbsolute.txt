@@ -128,3 +128,4 @@ D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\SearchFailure.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\DetailsFailure.cshtml.g.cs
 D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\C#\Shopify\Backend Dev & Production Enginner\InventoryTracker\obj\Debug\net5.0\Razor\Views\Inventory\Delete.cshtml.g.cs

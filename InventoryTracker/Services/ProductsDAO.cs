@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace InventoryTracker.Services
 {
-    public class ProductsDAO : IProductDataService 
+    public class ProductsDAO : IProductDataService  //A data access object class that inherets the IproductDataService Interface
     {
-        //string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Inventory;Integrated Security=True;
-        //Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         string ConnectionString = @"Data Source=NICOLASPC\SQLEXPRESS;Initial Catalog=Inventory;Integrated Security=True;
         Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public int Delete(ProductModel product)
+
+        public int Delete(ProductModel product) //Method to delete a given product from the database using an SQL query
         {
             int newIdNumber = -1;
 
@@ -36,7 +35,7 @@ namespace InventoryTracker.Services
                     try
                     {
                         connection.Open();
-                        newIdNumber = Convert.ToInt32(command.ExecuteScalar());
+                        newIdNumber = Convert.ToInt32(command.ExecuteScalar()); //Returns first column of the first row
 
                     }
                     catch (Exception e)
@@ -54,7 +53,7 @@ namespace InventoryTracker.Services
             return newIdNumber;
         }
 
-        public List<ProductModel> GetAllProducts()
+        public List<ProductModel> GetAllProducts()  //Method to Get all the products from the database using an SQL query
         {
             List<ProductModel> foundProducts = new List<ProductModel>();
 
@@ -85,7 +84,8 @@ namespace InventoryTracker.Services
             return foundProducts;
         }
 
-        public ProductModel GetProductById(int id)
+        public ProductModel GetProductById(int id)  /*Method to get a product from the database by using the given id 
+                                                     * using an SQL query*/
         {
             ProductModel foundProduct = null;
 
@@ -117,7 +117,7 @@ namespace InventoryTracker.Services
             return foundProduct;
         }
 
-        public int Add(ProductModel product)
+        public int Add(ProductModel product)    //Method to add a given product to the database using an SQL query
         {
 
             string SQLQuery = "INSERT INTO dbo.Product(Name, Quantity, Price, Description, Date) VALUES (@Name, @Quantity, @Price, @Description, @Date)";
@@ -177,7 +177,8 @@ namespace InventoryTracker.Services
             return foundProducts;
         }
 
-        public bool SearchName(string searchName)   //Dont need anymore
+        public bool SearchName(string searchName)   /*Method to search for a product from the database using 
+                                                     * the given search name and an SQL query*/
         {
             ProductModel sameNameProduct = new ProductModel();
 
@@ -208,7 +209,8 @@ namespace InventoryTracker.Services
             return true;
         }
 
-        public int Update(ProductModel product)
+        public int Update(ProductModel product) /*Method to update the values of a given product from the database 
+                                                 * using an SQL query*/
         {
             int newIdNumber = -1;
 

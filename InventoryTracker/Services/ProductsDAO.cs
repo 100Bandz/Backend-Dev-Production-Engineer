@@ -9,7 +9,10 @@ namespace InventoryTracker.Services
 {
     public class ProductsDAO : IProductDataService 
     {
-        string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Inventory;Integrated Security=True;
+        //string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Inventory;Integrated Security=True;
+        //Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        string ConnectionString = @"Data Source=NICOLASPC\SQLEXPRESS;Initial Catalog=Inventory;Integrated Security=True;
         Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public int Delete(ProductModel product)

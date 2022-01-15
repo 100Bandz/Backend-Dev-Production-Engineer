@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace InventoryTracker.Services
 {
-    public class SecurityService
+    public class SecurityService    //A class for security and input/data validation
     {
         ProductsDAO productDAO = new ProductsDAO();
-
         public SecurityService()
         {
 
         }
 
-        public bool IsValidProduct(ProductModel product)    //Checks if an item by the same name is already in the database
+        public bool IsValidProduct(ProductModel product)    /*Method that checks if an item by the same name is
+                                                            *already in the database*/
         {
             if (productDAO.SearchName(product.Name))
             {

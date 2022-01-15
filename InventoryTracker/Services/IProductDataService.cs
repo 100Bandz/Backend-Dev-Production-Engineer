@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryTracker.Services
 {
-    interface IProductDataService
+    interface IProductDataService   //Basic Interface that defines a contract for use by any class or struct
     {
         List<ProductModel> GetAllProducts();
         List<ProductModel> SearchProducts(string searchTerm);

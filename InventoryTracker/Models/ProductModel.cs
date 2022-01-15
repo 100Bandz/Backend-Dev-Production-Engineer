@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventoryTracker.Models
 {
-    public class ProductModel
+    public class ProductModel   //A class that holds product Specific data such as its parameters
     {
         public int Id { get; set; }
 
@@ -29,10 +29,5 @@ namespace InventoryTracker.Models
         [DisplayName("Date of Entry")]
         public DateTime Date { get; set; }
 
-
-        public ProductModel()
-        {
-
-        }
     }
 }

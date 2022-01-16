@@ -111,4 +111,5 @@ InventoryTracker/obj/Debug/net5.0/ref/InventoryTracker.dll
 *.suo
 InventoryTracker\InventoryTracker.csproj
 InventoryTracker\.vs\InventoryTracker\v16\.suo
+*.env
 

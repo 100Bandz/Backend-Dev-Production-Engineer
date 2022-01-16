@@ -15654,6 +15654,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#\\Shopify\\Backend Dev & Production Enginner\\InventoryTracker\\Views\\Inventory\\Delete.cshtml",
+      "TargetPath": "Views\\Inventory\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#\\Shopify\\Backend Dev & Production Enginner\\InventoryTracker\\Views\\Inventory\\Search.cshtml",
       "TargetPath": "Views\\Inventory\\Search.cshtml",
       "FileKind": "mvc"

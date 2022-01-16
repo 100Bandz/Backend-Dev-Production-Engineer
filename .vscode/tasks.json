@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj",
+                "${workspaceFolder}/InventoryTracker.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj",
+                "${workspaceFolder}/InventoryTracker.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj",
+                "${workspaceFolder}/InventoryTracker.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -45,14 +45,14 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "backenddevproductionenginner:dev",
+                "tag": "inventorytracker:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/InventoryTracker/Dockerfile",
+                "dockerfile": "${workspaceFolder}/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj"
+                "appProject": "${workspaceFolder}/InventoryTracker.csproj"
             }
         },
         {
@@ -62,13 +62,13 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "backenddevproductionenginner:latest",
-                "dockerfile": "${workspaceFolder}/InventoryTracker/Dockerfile",
+                "tag": "inventorytracker:latest",
+                "dockerfile": "${workspaceFolder}/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj"
+                "appProject": "${workspaceFolder}/InventoryTracker.csproj"
             }
         },
         {
@@ -79,7 +79,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj",
+                "appProject": "${workspaceFolder}/InventoryTracker.csproj",
                 "enableDebugging": true
             }
         },
@@ -91,7 +91,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/InventoryTracker/InventoryTracker.csproj"
+                "appProject": "${workspaceFolder}/InventoryTracker.csproj"
             }
         }
     ]

@@ -1,27 +1,33 @@
 ﻿using InventoryTracker.Models;
 using InventoryTracker.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace InventoryTracker.Controllers
 {
     public class InventoryController : Controller
     {
+        private readonly IConfiguration _configuration; //Setting up retrival of config values
+
+        public InventoryController(IConfiguration config)
+        {
+            this._configuration = config;
+        }
+
         public IActionResult Index()    //Action to return the entire inventory using the View "Index"
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
 
             return View("Index",products.GetAllProducts());
         }
 
         public IActionResult ExportToCSV()  //Action to Export All data in the inventory to a CSV file
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
 
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Name,Quantity,Price,Description,Date");
@@ -41,10 +47,10 @@ namespace InventoryTracker.Controllers
         public IActionResult ProcessAdd(ProductModel productModel)  /*Action to process adding products by checking if a product of 
                                                                      *the same name was already present*/
         {
-            SecurityService securityService = new SecurityService();
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
 
-            if (securityService.IsValidProduct(productModel))
+            if (products.IsValidProduct(productModel))
             {
                 products.Add(productModel);
                 return View("AddSuccess", productModel);
@@ -64,7 +70,8 @@ namespace InventoryTracker.Controllers
         public IActionResult ProcessSearch(string searchTerm)   /*Action to process searching for a product by checking if the returned
                                                                  *list is empty or not*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
             List<ProductModel> productList = products.SearchProducts(searchTerm);
 
             if (productList.Count == 0)
@@ -80,7 +87,8 @@ namespace InventoryTracker.Controllers
         public IActionResult ProcessDetails(int id) /*Action to process showing the details of a product by first validating that
                                                      * the given id gives a productmodel object that isn't null*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
             ProductModel foundProduct = products.GetProductById(id);
             if (foundProduct == null)
             {
@@ -94,7 +102,8 @@ namespace InventoryTracker.Controllers
 
         public IActionResult Edit(int id)   /*Action to Edit by returning the "Edit" View and the found product*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
             ProductModel foundProduct = products.GetProductById(id);
             return View("Edit",foundProduct);
         }
@@ -102,23 +111,28 @@ namespace InventoryTracker.Controllers
         public IActionResult ProcessEdit(ProductModel productModel) /*Action to process editing a given product, updating it and then
                                                                      * returning the "Index" View*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
+
             products.Update(productModel);
             return View("Index", products.GetAllProducts());
+
         }
 
         public IActionResult Delete(int Id) /*Action to Delete by returning the "Delete" View and the "Index" View*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
             ProductModel productModel = products.GetProductById(Id);
             products.Delete(productModel);
-            return View("Delete",productModel);
+            return View("Index",products.GetAllProducts());
         }
 
         public IActionResult ProcessDelete(ProductModel productModel)   /*Action to process deleting an item by allowing the user to
                                                                          * confirm their action as well as display the product's details*/
         {
-            ProductsDAO products = new ProductsDAO();
+            string conn = _configuration.GetConnectionString("Default");
+            ProductsDAO products = new ProductsDAO(conn);
             products.Delete(productModel);
             return View("Index", products.GetAllProducts());
         }

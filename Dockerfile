@@ -24,3 +24,13 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "InventoryTracker.dll"]
+
+FROM backenddevproductionenginner	
+ARG Server=${Server}
+ARG Database=${Database}
+ARG User ID=${User ID}
+ARG Password=${Password}
+ENV Server defaultvalue1
+ENV Database defaultvalue2
+ENV User ID defaultvalue3
+ENV Password defaultvalue4

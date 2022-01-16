@@ -99,3 +99,16 @@ InventoryTracker/obj/Debug/net5.0/Razor/Views/Inventory/Delete.cshtml.g.cs
 InventoryTracker/obj/Debug/net5.0/Razor/Views/Inventory/Edit.cshtml.g.cs
 InventoryTracker/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs
 InventoryTracker/obj/Debug/net5.0/ref/InventoryTracker.dll
+*.suo
+*.csproj
+*.csproj.user
+*.dll
+*.pdb
+*.cache
+*.dtbcache.v2
+*.exe
+*.cshtml.g.cs
+*.suo
+InventoryTracker\InventoryTracker.csproj
+InventoryTracker\.vs\InventoryTracker\v16\.suo
+

@@ -1,4 +1,5 @@
 ﻿using InventoryTracker.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,10 +10,11 @@ namespace InventoryTracker.Services
 {
     public class ProductsDAO : IProductDataService  //A data access object class that inherets the IproductDataService Interface
     {
-
-        string ConnectionString = @"Data Source=NICOLASPC\SQLEXPRESS;Initial Catalog=Inventory;Integrated Security=True;
-        Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        private readonly string ConnectionString = "";  //Connection String to the SQL Server
+        public ProductsDAO(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
 
         public int Delete(ProductModel product) //Method to delete a given product from the database using an SQL query
         {
@@ -119,7 +121,6 @@ namespace InventoryTracker.Services
 
         public int Add(ProductModel product)    //Method to add a given product to the database using an SQL query
         {
-
             string SQLQuery = "INSERT INTO dbo.Product(Name, Quantity, Price, Description, Date) VALUES (@Name, @Quantity, @Price, @Description, @Date)";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -241,6 +242,20 @@ namespace InventoryTracker.Services
             }
 
             return newIdNumber;
+        }
+
+        public bool IsValidProduct(ProductModel product)    /*Method that checks if an item by the same name is
+                                                            *already in the database*/
+        {
+            if (SearchName(product.Name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

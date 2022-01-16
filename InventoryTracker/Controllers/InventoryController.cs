@@ -2,6 +2,7 @@
 using InventoryTracker.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,7 @@ namespace InventoryTracker.Controllers
 {
     public class InventoryController : Controller
     {
+
         private readonly IConfiguration _configuration; //Setting up retrival of config values
 
         public InventoryController(IConfiguration config)
@@ -18,7 +20,14 @@ namespace InventoryTracker.Controllers
 
         public IActionResult Index()    //Action to return the entire inventory using the View "Index"
         {
-            string conn = _configuration.GetConnectionString("Default");
+            //string conn = _configuration.GetConnectionString("Default");
+            var testserver = Environment.GetEnvironmentVariable("Server");
+            var testdb = Environment.GetEnvironmentVariable("Database");
+            var testuid = Environment.GetEnvironmentVariable("User ID");
+            var testpwd = Environment.GetEnvironmentVariable("Password");
+
+            string conn = string.Format("Server={0};Database={1};User Id={2};Password={3};", testserver, testdb, testuid, testpwd);
+
             ProductsDAO products = new ProductsDAO(conn);
 
             return View("Index",products.GetAllProducts());

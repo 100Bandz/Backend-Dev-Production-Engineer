@@ -3,10 +3,7 @@ WORKDIR /app
 EXPOSE 5000
 
 ENV ASPNETCORE_URLS=http://+:5000
-ENV Server=defaultvalue1
-ENV Database=defaultvalue2
-ENV User ID=defaultvalue3
-ENV Password=defaultvalue4
+
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-dotnet-configure-containers

@@ -8,7 +8,7 @@ namespace InventoryTracker.Services
 {
     public class DotEnv
     {
-        public static void Load(string filePath)
+        public static void Load(string filePath)    //Load evn variables from .env file 
         {
             if (!File.Exists(filePath))
                 return;

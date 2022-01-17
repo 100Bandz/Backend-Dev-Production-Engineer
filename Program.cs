@@ -24,13 +24,6 @@ namespace InventoryTracker
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    var root = Directory.GetCurrentDirectory();
-                    var dotenv = Path.Combine(root, ".env");
-                    DotEnv.Load(dotenv);
-
-                    var config = new ConfigurationBuilder()
-                        .AddEnvironmentVariables()
-                        .Build();
                     webBuilder.UseStartup<Startup>();
                 });
     }

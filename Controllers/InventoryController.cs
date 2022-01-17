@@ -20,13 +20,7 @@ namespace InventoryTracker.Controllers
 
         public IActionResult Index()    //Action to return the entire inventory using the View "Index"
         {
-            //string conn = _configuration.GetConnectionString("Default");
-            var testserver = Environment.GetEnvironmentVariable("Server");
-            var testdb = Environment.GetEnvironmentVariable("Database");
-            var testuid = Environment.GetEnvironmentVariable("User ID");
-            var testpwd = Environment.GetEnvironmentVariable("Password");
-
-            string conn = string.Format("Server={0};Database={1};User Id={2};Password={3};", testserver, testdb, testuid, testpwd);
+            string conn = _configuration.GetConnectionString("Default");
 
             ProductsDAO products = new ProductsDAO(conn);
 

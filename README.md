@@ -3,6 +3,9 @@ A full CRUD web application built using ASP.NET Core MVC
 
 My application for Shopify's [Backend Developer](https://docs.google.com/document/d/1z9LZ_kZBUbg-O2MhZVVSqTmvDko5IJWHtuFmIu_Xg1A/edit?usp=sharing) Intern Challenge - Summer 2022 and their [Production Engineer](https://docs.google.com/document/d/1wir0XQuviR6p-uNEUPzsGvMFwqgMsY8sEjGUx74lNrg/edit?usp=sharing) Intern Challenge - Summer 2022
 
+# Inventory Tracker's Website
+http://nico-inventorytracker.rcp.r9n.co
+
 # Key Features
 My Inventory Tracker tackles all the basic CRUD functionalities
 * Create inventory items
@@ -24,10 +27,12 @@ The fake data I generated came from [Mockaroo](https://www.mockaroo.com/)
 6. The web app will start running and a new web browser will appear
 
 # Screenshots
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/Inventory.png?raw=true "Inventory")
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/Add.png?raw=true "Add")
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/Details.png?raw=true "Details")
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/Edit.png?raw=true "Edit")
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/Inventory.png?raw=true "Inventory")
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/Add.png?raw=true "Add")
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/Details.png?raw=true "Details")
 
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/Search.png?raw=true "Search")
-![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/InventoryTracker/wwwroot/Screenshots/CSV.png?raw=true "CSV")
+
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/Edit.png?raw=true "Edit")
+
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/Search.png?raw=true "Search")
+![alt text](https://github.com/100Bandz/Backend-Dev-Production-Engineer/blob/main/wwwroot/Screenshots/CSV.png?raw=true "CSV")
